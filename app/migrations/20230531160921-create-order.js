@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER, 
         reference: {
           models: 'User',
-          key: id,
+          foreignKey: 'id',
         },
         ONDELETE: 'CASCADE'
       },

@@ -4,31 +4,31 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
    
-     await queryInterface.bulkInsert('Order', [
+     await queryInterface.bulkInsert('Orders', [
       {
       userid: 1,
-      items: 'Baju, Celana, Sprei, Kaos Kaki',
+      item: 'Baju, Celana, Sprei, Kaos Kaki',
       orderdate: new Date(),
       paymentmethod: 'Gopay',
       invoice: 40000,
       },
       {
       userid: 1,
-      items: 'Sprei, Kaos Kaki',
+      item: 'Sprei, Kaos Kaki',
       orderdate: new Date(),
       paymentmethod: 'Dana',
       invoice: 35000,
       },
       {
       userid: 1,
-      items: 'Baju, Kaos Kaki',
+      item: 'Baju, Kaos Kaki',
       orderdate: new Date(),
       paymentmethod: 'BRI',
       invoice: 25000,
       },
       {
       userid: 1,
-      items: 'Baju, Celana',
+      item: 'Baju, Celana',
       orderdate: new Date(),
       paymentmethod: 'BCA',
       invoice: 27000,
@@ -40,6 +40,6 @@ module.exports = {
 
   async down (queryInterface, Sequelize) {
     
-     await queryInterface.bulkDelete('Order', null, {});
+     await queryInterface.bulkDelete('Orders', null, {});
   }
 };
