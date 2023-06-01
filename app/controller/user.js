@@ -1,4 +1,6 @@
 const db = require('../models');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const User = db.User;
 
 exports.findAll = async (req, res) => {
@@ -51,7 +53,7 @@ exports.updateUser = async (req, res) => {
     
     getUser.name = req.body.name;
     getUser.email = req.body.email;
-    getUser.password = req.body.password;
+    getUser.password = bcrypt.hashSync(req.body.password, 8),
     getUser.address = req.body.address;
     getUser.contact = req.body.contact;
     
