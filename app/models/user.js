@@ -19,9 +19,16 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     address: DataTypes.STRING,
     contact: DataTypes.STRING
-  }, {
+  }, 
+  {
     sequelize,
     modelName: 'User',
-  });
+  }
+  );
+  // Hook sebelum penyimpanan
+User.beforeCreate((user, options) => {
+  // Proses audit log sebelum penyimpanan user
+  console.log(`User with email ${user.email} is being created.`);
+});
   return User;
 };

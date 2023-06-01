@@ -26,6 +26,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Order',
+  }
+  );
+  // Hook sebelum penyimpanan
+  Order.beforeCreate((order, options) => {
+    // Proses audit log sebelum penyimpanan order
+    console.log(`Order with invoice ${order.invoice} is being created.`);
   });
   return Order;
 };
